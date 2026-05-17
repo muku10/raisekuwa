@@ -35,7 +35,7 @@ $img_base = esc_url( get_template_directory_uri() ) . '/assets/images/';
        * "Booking form" definition supplied with this build) into a new
        * CF7 form, then replace the id below with that form's id.
        */
-      echo do_shortcode( '[contact-form-7 id="REPLACE_BOOKING_FORM_ID" title="Table Booking"]' );
+      echo do_shortcode( '[contact-form-7 id="f8be2f9" title="Booking form"]' );
       ?>
     </div>
 

@@ -21,7 +21,7 @@ get_header(); ?>
 	get_template_part( 'template-parts/home/catering' );
 	get_template_part( 'template-parts/home/testimonials' );
 	get_template_part( 'template-parts/home/booking' );
-	get_template_part( 'template-parts/home/menu' );
+	// get_template_part( 'template-parts/home/menu' );
 	?>
 </main>
 

@@ -11,7 +11,7 @@
 $img      = get_field( 'about_image' );
 $img_base = esc_url( get_template_directory_uri() ) . '/assets/images/';
 $img_url  = is_array( $img ) ? esc_url( $img['url'] ) : ( $img ?: $img_base . 'about-chef-DB7vu_D2.jpg' );
-$badge    = get_field( 'about_badge_text' ) ?: 'Charcoal grilled, every single skewer.';
+$badge    = get_field( 'about_badge_text' ) ?: ' grilled, every single skewer.';
 $subtitle = get_field( 'about_subtitle' )   ?: 'Our Story';
 $title    = get_field( 'about_title' )      ?: 'A taste of <span class="text-gradient-fire">home</span>, far from home.';
 $desc1    = get_field( 'about_description' );
