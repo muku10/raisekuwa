@@ -40,6 +40,53 @@ if ( ! current_user_can( 'administrator' ) ) {
 }
 
 /**
+ * Site-wide contact details, pulled from the ACF "Theme Settings"
+ * options page. Each value falls back to the original site detail
+ * when its option field is empty or ACF is unavailable.
+ *
+ * @return array
+ */
+function raisekuwa_contact_info() {
+	$get = static function ( $name, $fallback ) {
+		$val = function_exists( 'get_field' ) ? get_field( $name, 'option' ) : '';
+		return ( $val === '' || $val === null || $val === false ) ? $fallback : $val;
+	};
+
+	return array(
+		'phone_primary'   => $get( 'phone_primary',   '07 5527 5944' ),
+		'phone_secondary' => $get( 'phone_secondary', '0400 483 912' ),
+		'email'           => $get( 'email',           'info@raisekuwacorner.com.au' ),
+		'whatsapp'        => $get( 'whatsapp_number',  '61755275944' ),
+		'facebook'        => $get( 'facebook_url',     'https://www.facebook.com/raisekuwacorner/' ),
+		'instagram'       => $get( 'instagram_url',    '' ),
+		'address'         => $get( 'address',          "1/149 Scarbourgh Street,\nSouthport QLD 4215" ),
+		'hours'           => $get( 'opening_hours',    "Mon – Thu | 11:30 – 21:30\nFri – Sat | 11:30 – 22:30\nSunday | 12:00 – 21:00" ),
+	);
+}
+
+/**
+ * Build a `tel:` href from a human-readable phone number.
+ */
+function raisekuwa_tel_href( $number ) {
+	return 'tel:' . preg_replace( '/[^0-9+]/', '', (string) $number );
+}
+
+/**
+ * Parse a "Day | Time" multi-line string into an array of [ day, time ] rows.
+ */
+function raisekuwa_parse_hours( $raw ) {
+	$rows = array();
+	foreach ( preg_split( '/\r\n|\r|\n/', (string) $raw ) as $line ) {
+		if ( ! trim( $line ) ) {
+			continue;
+		}
+		$parts  = array_map( 'trim', explode( '|', $line, 2 ) );
+		$rows[] = array( $parts[0] ?? '', $parts[1] ?? '' );
+	}
+	return $rows;
+}
+
+/**
  * Sale / Sold-out badge after the price on the single product page.
  */
 add_filter( 'woocommerce_get_price_html', function ( $price_html, $product ) {

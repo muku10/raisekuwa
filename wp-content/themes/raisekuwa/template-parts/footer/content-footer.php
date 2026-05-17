@@ -2,6 +2,9 @@
 /**
  * Site footer — Rai's Sekuwa Corner.
  *
+ * Contact details (phone, email, address, hours, WhatsApp, Facebook)
+ * come from the ACF "Theme Settings" options page.
+ *
  * @package raisekuwa
  */
 
@@ -13,6 +16,11 @@ $custom_logo_id = get_theme_mod( 'custom_logo' );
 if ( $custom_logo_id ) {
 	$logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
 }
+
+// ─── Contact details (ACF options page) ───
+$contact      = raisekuwa_contact_info();
+$footer_hours = raisekuwa_parse_hours( $contact['hours'] );
+$whatsapp_num = preg_replace( '/[^0-9]/', '', (string) $contact['whatsapp'] );
 
 // ─── Resolve Menus ───
 $resolve_menu = function ( $location ) {
@@ -47,9 +55,11 @@ $items_menu   = $resolve_menu( 'footer-menu-2' );
 	<div class="absolute inset-0 bg-gradient-to-b from-[#0a0907]/90 via-[#0a0907]/85 to-[#0a0907] pointer-events-none"></div>
 
 	<!-- WhatsApp Floating Button -->
-	<a href="https://wa.me/61755275944" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebe5a] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_30px_-5px_rgba(37,211,102,0.6)] hover:scale-110 transition-transform float-med">
+	<?php if ( $whatsapp_num ) : ?>
+	<a href="https://wa.me/<?php echo esc_attr( $whatsapp_num ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-50 bg-[#25D366] hover:bg-[#1ebe5a] text-white w-14 h-14 rounded-full flex items-center justify-center shadow-[0_10px_30px_-5px_rgba(37,211,102,0.6)] hover:scale-110 transition-transform float-med">
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle w-6 h-6"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
 	</a>
+	<?php endif; ?>
 
 	<div class="relative container pt-20 pb-12">
 		<div class="grid md:grid-cols-2 lg:grid-cols-5 gap-12 mb-14">
@@ -63,12 +73,21 @@ $items_menu   = $resolve_menu( 'footer-menu-2' );
 					<?php echo esc_html( get_bloginfo( 'description' ) ?: 'Authentic Nepali Sekuwa, hand-folded momo and bold street food, grilled fresh over real charcoal in Southport, Queensland.' ); ?>
 				</p>
 				<div class="flex gap-3 mt-6">
-					<a href="https://www.facebook.com/raisekuwacorner/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="border border-white/15 bg-white/5 p-3 hover:border-primary hover:text-primary transition-colors">
+					<?php if ( $contact['facebook'] ) : ?>
+					<a href="<?php echo esc_url( $contact['facebook'] ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="border border-white/15 bg-white/5 p-3 hover:border-primary hover:text-primary transition-colors">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-facebook w-4 h-4"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
 					</a>
-					<a href="mailto:info@raisekuwacorner.com.au" aria-label="Email" class="border border-white/15 bg-white/5 p-3 hover:border-primary hover:text-primary transition-colors">
+					<?php endif; ?>
+					<?php if ( $contact['instagram'] ) : ?>
+					<a href="<?php echo esc_url( $contact['instagram'] ); ?>" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="border border-white/15 bg-white/5 p-3 hover:border-primary hover:text-primary transition-colors">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram w-4 h-4"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+					</a>
+					<?php endif; ?>
+					<?php if ( $contact['email'] ) : ?>
+					<a href="<?php echo esc_attr( 'mailto:' . $contact['email'] ); ?>" aria-label="Email" class="border border-white/15 bg-white/5 p-3 hover:border-primary hover:text-primary transition-colors">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-4 h-4"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
 					</a>
+					<?php endif; ?>
 				</div>
 			</div>
 
@@ -106,28 +125,36 @@ $items_menu   = $resolve_menu( 'footer-menu-2' );
 			<div>
 				<h4 class="font-serif text-lg mb-5 text-white">Visit Us</h4>
 				<ul class="space-y-3 text-white/60 text-sm">
+					<?php if ( $contact['address'] ) : ?>
 					<li class="flex items-start gap-2">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-4 h-4 mt-0.5 text-primary shrink-0"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
-						<span>1/149 Scarbourgh Street,<br>Southport QLD 4215</span>
+						<span><?php echo nl2br( esc_html( $contact['address'] ) ); ?></span>
 					</li>
+					<?php endif; ?>
+					<?php if ( $contact['phone_primary'] ) : ?>
 					<li class="flex items-center gap-2">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-4 h-4 text-primary shrink-0"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-						<a href="tel:+61755275944" class="hover:text-primary">07 5527 5944</a>
+						<a href="<?php echo esc_attr( raisekuwa_tel_href( $contact['phone_primary'] ) ); ?>" class="hover:text-primary"><?php echo esc_html( $contact['phone_primary'] ); ?></a>
 					</li>
+					<?php endif; ?>
+					<?php if ( $contact['email'] ) : ?>
 					<li class="flex items-center gap-2">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-4 h-4 text-primary shrink-0"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-						<a href="mailto:info@raisekuwacorner.com.au" class="hover:text-primary break-all">info@raisekuwacorner.com.au</a>
+						<a href="<?php echo esc_attr( 'mailto:' . $contact['email'] ); ?>" class="hover:text-primary break-all"><?php echo esc_html( $contact['email'] ); ?></a>
 					</li>
+					<?php endif; ?>
 				</ul>
+				<?php if ( $footer_hours ) : ?>
 				<h4 class="font-serif text-lg mt-7 mb-4 text-white flex items-center gap-2">
 					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-clock w-4 h-4 text-primary"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
 					Opening Hours
 				</h4>
 				<ul class="space-y-2 text-white/60 text-sm">
-					<li class="flex justify-between gap-3"><span>Mon – Thu</span><span class="text-white/80">11:30 – 21:30</span></li>
-					<li class="flex justify-between gap-3"><span>Fri – Sat</span><span class="text-white/80">11:30 – 22:30</span></li>
-					<li class="flex justify-between gap-3"><span>Sunday</span><span class="text-white/80">12:00 – 21:00</span></li>
+					<?php foreach ( $footer_hours as $row ) : ?>
+						<li class="flex justify-between gap-3"><span><?php echo esc_html( $row[0] ); ?></span><span class="text-white/80"><?php echo esc_html( $row[1] ); ?></span></li>
+					<?php endforeach; ?>
 				</ul>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>
@@ -140,7 +167,7 @@ $items_menu   = $resolve_menu( 'footer-menu-2' );
 				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame w-3 h-3 text-primary"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
 			</p>
 			<p class="flex items-center gap-1.5">
-				Cooked with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-3 h-3 text-primary fill-primary"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg> love by 
+				Cooked with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart w-3 h-3 text-primary fill-primary"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></svg> love by
 				<a href="https://mysisco.com" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary font-semibold">MySisco ICT</a>
 			</p>
 		</div>
