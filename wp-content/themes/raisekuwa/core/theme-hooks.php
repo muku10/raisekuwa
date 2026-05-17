@@ -35,6 +35,13 @@ add_action( 'wp_head', function () {
 		@media(min-width:1024px){
 			header[data-site-header].is-scrolled [data-brand-text]{font-size:.875rem !important;}
 		}
+		/* While the mobile drawer is open, remove the header's backdrop
+		   filter — a filtered ancestor traps the drawer's fixed positioning
+		   and collapses it to the header height once the page is scrolled. */
+		header[data-site-header].drawer-open{
+			backdrop-filter:none !important;
+			-webkit-backdrop-filter:none !important;
+		}
 		/* Mobile drawer transitions */
 		[data-mobile-drawer]{transition:opacity .3s ease;}
 		[data-drawer-panel]{transition:transform .5s cubic-bezier(.16,1,.3,1);}

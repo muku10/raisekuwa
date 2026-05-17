@@ -35,6 +35,10 @@
     aside.classList.toggle('translate-x-0', open);
     aside.classList.toggle('translate-x-full', !open);
     document.body.style.overflow = open ? 'hidden' : '';
+    // Drop the header's backdrop-filter while the drawer is open — a
+    // filtered ancestor traps the drawer's `fixed` positioning, which
+    // collapses it to the header's height once the page is scrolled.
+    if (header) header.classList.toggle('drawer-open', open);
   }
   if (openBtn) openBtn.addEventListener('click', function () { setDrawer(true); });
   if (backdrop) backdrop.addEventListener('click', function () { setDrawer(false); });
