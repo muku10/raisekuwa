@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//tmp/**)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/component-facets.css?v=140637700969759449281748408910\" -o /tmp/facets.css)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/tailwind_output.css?v=48358101351677048151749814246\" -o /tmp/tailwind.css)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/component-accordion.css?v=112571158596249211091748408906\")",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/section-main-product.css?v=62275893723635549371748408907\" -o /tmp/main-product.css)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/component-collection-hero.css?v=70945444901450239741748408909\")",
+      "Bash(curl -sL -o /tmp/about-us.html -w \"%{http_code}\" \"https://oudalkhoori.com/en/pages/about-us\")",
+      "Bash(curl -sL -o /tmp/contact-us.html -w \"%{http_code}\" \"https://oudalkhoori.com/en/pages/contact-us\")",
+      "Bash(curl -sL -o /tmp/privacy-policy.html -w \"%{http_code}\" \"https://oudalkhoori.com/en/policies/privacy-policy\")",
+      "Bash(curl -sL -o /tmp/terms-of-service.html -w \"%{http_code}\" \"https://oudalkhoori.com/en/policies/terms-of-service\")",
+      "Bash(curl -sL -o /tmp/refund-policy.html -w \"%{http_code}\" \"https://oudalkhoori.com/en/policies/refund-policy\")",
+      "WebFetch(domain:oudalkhoori.com)",
+      "Bash(curl -s -L \"https://oudalkhoori.com/en/pages/contact\" -o /tmp/contact_page.html)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/base.css?v=20715518765099600541752562821\" -o /tmp/base.css)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/custom.css?v=7772106061820046091749966798\" -o /tmp/custom.css)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/section-contact-form.css?v=124756058432495035521745833804\" -o /tmp/contact-form.css)",
+      "Bash(perl -0777 -ne 'while \\(/\\(?:^|[},;]\\)\\\\s*\\(\\\\.button\\\\b[^{]*\\\\{[^}]*\\\\}\\)/g\\) { print \"$1\\\\n---\\\\n\" }' /tmp/base.css)",
+      "Bash(perl -0777 -ne 'while \\(/\\\\.button:hover[^{]*\\\\{[^}]*\\\\}/g\\) { print \"$&\\\\n---\\\\n\" }' /tmp/base.css)",
+      "Bash(node -e ':*)",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/tailwind_output.css?v=48358101351677048151749814246\" -o ./tailwind.css)",
+      "Bash(curl -s -L \"https://oudalkhoori.com/en/\" -o /tmp/homepage.html)",
+      "Bash(curl -s -L \"https://oudalkhoori.com/en/\")",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/custom.css?v=7772106061820046091749966798\")",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/base.css?v=20715518765099600541752562821\")",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/component-slideshow.css?v=79411165865628528931748408909\")",
+      "Bash(curl -s \"https://oudalkhoori.com/cdn/shop/t/1/assets/component-slider.css?v=134097537028861714331748408909\")",
+      "Bash(curl -s -L \"https://oudalkhoori.com/en/collections/all\" -o /tmp/collections_page.html)"
+    ]
+  }
+}

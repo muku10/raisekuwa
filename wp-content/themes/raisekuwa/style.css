@@ -1,0 +1,31 @@
+/*
+Theme Name: Rai's Sekuwa Corner
+Theme URI: 
+Author: Rai's Sekuwa Corner
+Author URI: 
+Description: Authentic Nepali Sekuwa and BBQ theme.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: raisekuwa
+*/
+
+:root {
+    --background: 30 20% 7%;
+    --foreground: 38 30% 92%;
+    --primary: 22 96% 55%;
+    --secondary: 28 14% 12%;
+    --muted: 30 12% 15%;
+    --muted-foreground: 38 15% 58%;
+    --card: 28 18% 10%;
+    --border: 30 12% 18%;
+}
+
+.wp-caption {}
+.wp-caption-text {}
+.sticky {}
+.gallery-caption {}
+.alignright {}
+.bypostauthor {}
+.aligncenter {}
+.alignleft {}

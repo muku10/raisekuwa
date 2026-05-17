@@ -1,0 +1,6 @@
+# WordPress files and folders to ignore
+wp-config.php
+wp-content/uploads/
+.DS_Store
+node_modules/
+vendor/
