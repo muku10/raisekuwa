@@ -8,17 +8,9 @@
  * @package raisekuwa
  */
 
-$subtitle = get_field( 'signature_subtitle' ) ?: 'Signature Plates';
-$title    = get_field( 'signature_title' )    ?: 'Straight off the <span class="text-gradient-fire">charcoal grill</span>';
+$subtitle = get_field( 'signature_subtitle' );
+$title    = get_field( 'signature_title' );
 $img_base = esc_url( get_template_directory_uri() ) . '/assets/images/';
-
-/* Static fallback dishes — mirrors index.html exactly */
-$static_dishes = [
-	[ 'img' => $img_base . 'dish-buff-sukuti-BPkB_9x8.jpg',      'title' => 'Buff Sukuti',    'category' => 'Charcoal BBQ' ],
-	[ 'img' => $img_base . 'dish-steamed-momo-eaA_C0vV.jpg',     'title' => 'Jhol Momo',      'category' => 'Hand Folded' ],
-	[ 'img' => $img_base . 'dish-chow-mein-B1YWKp4U.jpg',        'title' => 'Chow Mein',      'category' => 'Comfort Bowls' ],
-	[ 'img' => $img_base . 'dish-chilli-chicken-B3EF2eZr.jpg',   'title' => 'Chilli Chicken', 'category' => 'Bold Flavours' ],
-];
 ?>
 <section id="signature" class="py-24 lg:py-32 relative overflow-hidden">
 
@@ -66,22 +58,6 @@ $static_dishes = [
 						</a>
 					</div>
 				<?php endwhile; ?>
-
-			<?php else : ?>
-
-				<?php foreach ( $static_dishes as $i => $dish ) : ?>
-					<div class="reveal" style="transition-delay:<?php echo $i * 100; ?>ms;">
-						<a href="#menu" class="group relative block aspect-[3/4] overflow-hidden bg-card shadow-soft">
-							<img src="<?php echo $dish['img']; ?>" alt="<?php echo esc_attr( $dish['title'] ); ?>" loading="lazy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-							<div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent"></div>
-							<div class="absolute inset-0 p-6 flex flex-col justify-end text-white">
-								<span class="text-primary text-xs uppercase tracking-widest mb-1"><?php echo esc_html( $dish['category'] ); ?></span>
-								<h3 class="font-serif text-2xl lg:text-3xl"><?php echo esc_html( $dish['title'] ); ?></h3>
-								<div class="h-px w-0 bg-primary mt-3 transition-all duration-500 group-hover:w-12"></div>
-							</div>
-						</a>
-					</div>
-				<?php endforeach; ?>
 
 			<?php endif; ?>
 

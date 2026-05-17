@@ -1,12 +1,12 @@
 <?php
 $bg_image  = get_field('hero_bg_image');
-$subtitle  = get_field('hero_subtitle')  ?: 'Authentic Nepali Kitchen';
-$title     = get_field('hero_title')     ?: 'Taste the <br><span class="text-gradient-fire">Fire of Nepal</span>';
-$desc      = get_field('hero_description') ?: 'Smoky charcoal Sekuwa, hand-folded momo and bold Nepali street food — crafted from family recipes, grilled fresh to order in Southport.';
-$btn1_text = get_field('hero_primary_btn_text')   ?: 'Explore Menu';
-$btn1_link = get_field('hero_primary_btn_link')   ?: site_url('/menu');
-$btn2_text = get_field('hero_secondary_btn_text') ?: 'Contact Us';
-$btn2_link = get_field('hero_secondary_btn_link') ?: site_url('/contact');
+$subtitle  = get_field('hero_subtitle');
+$title     = get_field('hero_title');
+$desc      = get_field('hero_description');
+$btn1_text = get_field('hero_primary_btn_text');
+$btn1_link = get_field('hero_primary_btn_link');
+$btn2_text = get_field('hero_secondary_btn_text');
+$btn2_link = get_field('hero_secondary_btn_link');
 ?>
 <section id="home" class="relative min-h-screen w-full overflow-hidden flex items-center bg-[#0b0a09] text-white">
     <div class="absolute inset-0">

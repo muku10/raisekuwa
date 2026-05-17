@@ -9,8 +9,8 @@
  * @package raisekuwa
  */
 
-$subtitle = get_field( 'test_subtitle' ) ?: 'Guest Love';
-$title    = get_field( 'test_title' )    ?: 'What our diners say';
+$subtitle = get_field( 'test_subtitle' );
+$title    = get_field( 'test_title' );
 $img_base = esc_url( get_template_directory_uri() ) . '/assets/images/';
 
 /* --- Reusable SVG helpers ---------------------------------------- */
@@ -30,18 +30,6 @@ if ( have_rows( 'testimonials' ) ) {
 			'rating' => intval( get_sub_field( 'rating' ) ?: 5 ),
 		];
 	}
-}
-
-/* Static fallback — all 6 reviews from index.html */
-if ( empty( $reviews ) ) {
-	$reviews = [
-		[ 'quote' => 'The pork sekuwa is unreal — smoky, juicy and full of flavour. Best Nepali food in Southport, hands down.', 'author' => 'Aarav S.', 'rating' => 5 ],
-		[ 'quote' => 'Their jhol momo is exceptional. The broth is rich, spicy and so comforting. We come every weekend.',         'author' => 'Priya K.', 'rating' => 5 ],
-		[ 'quote' => "First time trying Nepali food and now I'm hooked. The chilli beef and kothey momo are addictive. Warm staff, beautiful vibes.", 'author' => 'Daniel T.', 'rating' => 5 ],
-		[ 'quote' => 'Authentic flavours that took me right back to Kathmandu. The chowmein and choila are absolutely brilliant.', 'author' => 'Sophie M.', 'rating' => 5 ],
-		[ 'quote' => 'Finally a true taste of Nepal on the Gold Coast. The thali set is generous and packed with flavour.',        'author' => 'Rajan B.',  'rating' => 5 ],
-		[ 'quote' => 'Hidden gem of Southport! The mutton sekuwa is to die for and the staff treat you like family.',             'author' => 'Emily R.',  'rating' => 5 ],
-	];
 }
 
 $total_slides = count( $reviews );

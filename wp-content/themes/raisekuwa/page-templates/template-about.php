@@ -28,17 +28,17 @@ $rsk_img_url = static function ( $val, $size = 'large' ) {
 /* ── Hero ───────────────────────────────────────────────── */
 $hero_bg  = $rsk_img_url( get_field( 'about_hero_bg' ), 'full' );
 $hero_bg  = $hero_bg ?: $img_base . 'about-chef-DB7vu_D2.jpg';
-$subtitle = get_field( 'about_hero_subtitle' )    ?: '';
-$title    = get_field( 'about_hero_title' )       ?: '';
-$desc     = get_field( 'about_hero_description' ) ?: '';
+$subtitle = get_field( 'about_hero_subtitle' );
+$title    = get_field( 'about_hero_title' );
+$desc     = get_field( 'about_hero_description' );
 
 /* ── Story Section ──────────────────────────────────────── */
 $about_img   = $rsk_img_url( get_field( 'about_image' ) );
 $about_img   = $about_img ?: $img_base . 'about-chef-DB7vu_D2.jpg';
-$about_badge = get_field( 'about_badge_text' ) ?: 'Charcoal grilled, every single skewer.';
-$about_sub   = get_field( 'about_subtitle' )   ?: '';
-$about_h2    = get_field( 'about_title' )      ?: 'A taste of <span class="text-gradient-fire">home</span>, far from home.';
-$about_desc  = get_field( 'about_description' ) ?: "Rai's Sekuwa Corner began with a simple promise — to bring the bold, smoky flavours of Nepali street food to Australia, without shortcuts. Every momo is folded by hand. Every sekuwa is marinated overnight and grilled over real charcoal.\n\nFrom our kitchen in Southport to your table, our recipes carry the warmth of family, the depth of generations-old spice blends, and the soul of authentic Nepali street food.";
+$about_badge = get_field( 'about_badge_text' );
+$about_sub   = get_field( 'about_subtitle' );
+$about_h2    = get_field( 'about_title' );
+$about_desc  = get_field( 'about_description' );
 // Each blank line in the textarea starts a new paragraph.
 $about_paras = array_values( array_filter( array_map( 'trim', preg_split( '/\n\s*\n/', trim( (string) $about_desc ) ) ) ) );
 ?>
@@ -102,23 +102,6 @@ $about_paras = array_values( array_filter( array_map( 'trim', preg_split( '/\n\s
 								<h3 class="font-serif text-sm sm:text-base uppercase tracking-wide"><?php echo esc_html( $hl_title ); ?></h3>
 							</div>
 						<?php endwhile; ?>
-					<?php else : ?>
-						<div class="flex items-center gap-3 border-l-2 border-primary/70 pl-3 py-1">
-							<div class="w-9 h-9 shrink-0 bg-gradient-fire flex items-center justify-center text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-flame w-4 h-4"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg></div>
-							<h3 class="font-serif text-sm sm:text-base uppercase tracking-wide">Real Charcoal</h3>
-						</div>
-						<div class="flex items-center gap-3 border-l-2 border-primary/70 pl-3 py-1">
-							<div class="w-9 h-9 shrink-0 bg-gradient-fire flex items-center justify-center text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hand w-4 h-4"><path d="M18 11V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2"></path><path d="M14 10V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v2"></path><path d="M10 10.5V6a2 2 0 0 0-2-2a2 2 0 0 0-2 2v8"></path><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"></path></svg></div>
-							<h3 class="font-serif text-sm sm:text-base uppercase tracking-wide">Hand-Folded Daily</h3>
-						</div>
-						<div class="flex items-center gap-3 border-l-2 border-primary/70 pl-3 py-1">
-							<div class="w-9 h-9 shrink-0 bg-gradient-fire flex items-center justify-center text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-leaf w-4 h-4"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></div>
-							<h3 class="font-serif text-sm sm:text-base uppercase tracking-wide">Fresh &amp; Authentic</h3>
-						</div>
-						<div class="flex items-center gap-3 border-l-2 border-primary/70 pl-3 py-1">
-							<div class="w-9 h-9 shrink-0 bg-gradient-fire flex items-center justify-center text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-4 h-4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
-							<h3 class="font-serif text-sm sm:text-base uppercase tracking-wide">Made for Sharing</h3>
-						</div>
 					<?php endif; ?>
 				</div>
 				<div class="flex flex-wrap gap-4 mt-10"><a href="<?php echo esc_url( site_url( '/contact' ) ); ?>" class="btn-fire text-primary-foreground px-7 py-3.5 text-xs font-semibold uppercase tracking-widest"><span>Contact Us</span></a></div>

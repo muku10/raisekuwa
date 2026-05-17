@@ -11,11 +11,11 @@
 $img_base = esc_url( get_template_directory_uri() ) . '/assets/images/';
 $bg       = get_field( 'catering_bg_image' );
 $bg_url   = is_array( $bg ) ? esc_url( $bg['url'] ) : ( $bg ?: $img_base . 'parallax-grill-CQrKh_B_.jpg' );
-$subtitle = get_field( 'catering_subtitle' )    ?: 'Catering With Fire';
-$title    = get_field( 'catering_title' )       ?: '“From our grill to your <span class="text-gradient-fire">celebration.</span>”';
-$desc     = get_field( 'catering_description' ) ?: 'Authentic Nepali flavours, charcoal-grilled on-site or delivered hot — crafted for weddings, corporate events and gatherings of every size.';
-$btn_text = get_field( 'catering_btn_text' )    ?: 'Enquire Now';
-$btn_link = get_field( 'catering_btn_link' )    ?: site_url( '/catering' ) . '#catering-inquiry';
+$subtitle = get_field( 'catering_subtitle' );
+$title    = get_field( 'catering_title' );
+$desc     = get_field( 'catering_description' );
+$btn_text = get_field( 'catering_btn_text' );
+$btn_link = get_field( 'catering_btn_link' );
 ?>
 <section class="relative h-[70vh] min-h-[500px] w-full overflow-hidden">
 

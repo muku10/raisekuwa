@@ -79,66 +79,27 @@
     t.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  /* ---------- 6. Parallax (element-relative) ---------- */
-  // Each .will-change-transform float drifts gently around its OWN anchor
-  // point, based on how far that point is from the viewport centre — not
-  // the global scroll position. This keeps floats near their section on
-  // long pages (e.g. the homepage) instead of sliding far off-screen.
-  var parallaxEls = document.querySelectorAll('.will-change-transform');
-  if (parallaxEls.length) {
-    var speeds = [0.06, -0.05, 0.08, -0.04, 0.07, -0.06];
-    var items  = [];
-
-    var measure = function () {
-      items.forEach(function (it) {
-        // Reset to base position so the measurement is transform-free.
-        it.el.style.transform = 'translate3d(0px, 0px, 0px)' + it.rotate;
-      });
-      items.forEach(function (it) {
-        var rect = it.el.getBoundingClientRect();
-        it.anchor = rect.top + window.scrollY + rect.height / 2;
-      });
-    };
-
-    parallaxEls.forEach(function (el, i) {
-      var styleStr   = el.getAttribute('style') || '';
-      var rotateMtch = styleStr.match(/rotate\([^)]+\)/);
-      items.push({
-        el: el,
-        rotate: rotateMtch ? ' ' + rotateMtch[0] : '',
-        speed: speeds[i % speeds.length],
-        anchor: 0
-      });
-    });
-
-    var updateParallax = function () {
-      var viewportCenter = window.scrollY + window.innerHeight / 2;
-      items.forEach(function (it) {
-        var yPos = (viewportCenter - it.anchor) * it.speed;
-        it.el.style.transform =
-          'translate3d(0px, ' + yPos.toFixed(1) + 'px, 0px)' + it.rotate;
-      });
-    };
-
-    var ticking = false;
-    window.addEventListener('scroll', function () {
-      if (!ticking) {
-        window.requestAnimationFrame(function () {
-          updateParallax();
-          ticking = false;
+  /* ---------- 6. Tab snapshots (Menu / Gallery) ---------- */
+  var dataNode = document.querySelector('script[data-tabs-data]');
+  if (dataNode) {
+    try {
+      var TABS = JSON.parse(dataNode.textContent || '{}');
+      Object.keys(TABS).forEach(function (sel) {
+        var section = document.querySelector(sel);
+        if (!section) return;
+        var variants = TABS[sel];
+        section.addEventListener('click', function (e) {
+          var btn = e.target.closest && e.target.closest('button');
+          if (!btn || !section.contains(btn)) return;
+          var label = (btn.textContent || '').trim();
+          if (!variants[label]) return;
+          e.preventDefault();
+          section.innerHTML = variants[label];
+          section.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) {
+            el.classList.add('in-view');
+          });
         });
-        ticking = true;
-      }
-    }, { passive: true });
-
-    window.addEventListener('resize', function () {
-      measure();
-      updateParallax();
-    }, { passive: true });
-
-    // Initial measure + paint (re-measure once images have loaded).
-    measure();
-    updateParallax();
-    window.addEventListener('load', function () { measure(); updateParallax(); });
+      });
+    } catch (err) { /* noop */ }
   }
 })();

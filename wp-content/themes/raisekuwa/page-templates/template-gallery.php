@@ -19,9 +19,9 @@ if ( is_array( $hero_bg_raw ) ) {
 	$hero_bg = $hero_bg_raw ?: get_template_directory_uri() . '/assets/images/hero-sekuwa-D_cTsVYV.jpg';
 }
 
-$subtitle   = get_field( 'gallery_hero_subtitle' ) ?: '';
-$title      = get_field( 'gallery_hero_title' )    ?: '';
-$desc       = get_field( 'gallery_hero_description' ) ?: '';
+$subtitle   = get_field( 'gallery_hero_subtitle' );
+$title      = get_field( 'gallery_hero_title' );
+$desc       = get_field( 'gallery_hero_description' );
 
 // ─── Gallery Categories ───
 $categories = get_terms( array(

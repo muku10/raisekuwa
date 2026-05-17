@@ -36,12 +36,6 @@ if ( ! function_exists( 'raisekuwa_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
-
-		// WooCommerce.
-		add_theme_support( 'woocommerce' );
-		add_theme_support( 'wc-product-gallery-zoom' );
-		add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
 	}
 endif;
 add_action( 'after_setup_theme', 'raisekuwa_setup' );

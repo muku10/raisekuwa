@@ -19,9 +19,9 @@ if ( is_array( $hero_bg_raw ) ) {
 	$hero_bg = $hero_bg_raw ?: get_template_directory_uri() . '/assets/images/parallax-grill-CQrKh_B_.jpg';
 }
 
-$subtitle   = get_field( 'catering_hero_subtitle' ) ?: '';
-$title      = get_field( 'catering_hero_title' )    ?: '';
-$desc       = get_field( 'catering_hero_description' ) ?: '';
+$subtitle   = get_field( 'catering_hero_subtitle' );
+$title      = get_field( 'catering_hero_title' );
+$desc       = get_field( 'catering_hero_description' );
 
 // ─── Main Package Data ───
 $pkg_image_raw = get_field( 'catering_package_image' );
@@ -33,9 +33,9 @@ if ( is_array( $pkg_image_raw ) ) {
 	$pkg_image = $pkg_image_raw ?: get_template_directory_uri() . '/assets/images/dish-sekuwa-mix-BtfJtQ-w.jpg';
 }
 
-$pkg_price  = get_field( 'catering_package_price' ) ?: '';
-$pkg_title  = get_field( 'catering_package_title' ) ?: '';
-$pkg_desc   = get_field( 'catering_package_description' ) ?: '';
+$pkg_price  = get_field( 'catering_package_price' );
+$pkg_title  = get_field( 'catering_package_title' );
+$pkg_desc   = get_field( 'catering_package_description' );
 
 // ─── Add-Ons ───
 $addons = get_field( 'catering_addons' );
