@@ -16,25 +16,25 @@ $hero_bg_url = is_array( $hero_bg ) ? ( $hero_bg['url'] ?? '' ) : $hero_bg;
 if ( ! $hero_bg_url ) {
 	$hero_bg_url = get_template_directory_uri() . '/assets/images/parallax-grill-CQrKh_B_.jpg';
 }
-$hero_sub   = get_field( 'contact_hero_subtitle' )    ?: 'Get In Touch';
-$hero_title = get_field( 'contact_hero_title' )       ?: 'Come say <span class="text-gradient-fire">namaste</span>';
-$hero_desc  = get_field( 'contact_hero_description' ) ?: "Pop in, ring us, or drop a line — we'd love to hear from you.";
+$hero_sub   = get_field( 'contact_hero_subtitle' )    ?: ' ';
+$hero_title = get_field( 'contact_hero_title' )       ?: '';
+$hero_desc  = get_field( 'contact_hero_description' ) ?: "";
 
 /* ── Contact details ────────────────────────────────────── */
-$det_sub   = get_field( 'contact_details_subtitle' ) ?: 'Contact Details';
-$det_title = get_field( 'contact_details_title' )    ?: 'Visit, call, or <span class="text-gradient-fire">message us.</span>';
-$address   = get_field( 'contact_address' )          ?: "1/149 Scarbourgh Street,\nSouthport QLD 4215, Australia";
-$phone_1   = get_field( 'contact_phone_1' )          ?: '07 5527 5944';
-$phone_2   = get_field( 'contact_phone_2' )          ?: '0400 483 912';
-$email     = get_field( 'contact_email' )            ?: 'info@raisekuwacorner.com.au';
-$hours_raw = get_field( 'contact_hours' )            ?: "Mon – Thu | 11:30 – 21:30\nFri – Sat | 11:30 – 22:30\nSunday | 12:00 – 21:00";
-$dir_url   = get_field( 'contact_directions_url' )   ?: 'https://maps.google.com/?q=Rai+Sekuwa+Corner+Southport';
-$map_url   = get_field( 'contact_map_embed_url' )    ?: 'https://www.google.com/maps?q=1/149+Scarbourgh+Street+Southport+QLD&output=embed';
+$det_sub   = get_field( 'contact_details_subtitle' ) ?: '';
+$det_title = get_field( 'contact_details_title' )    ?: '';
+$address   = get_field( 'contact_address' )          ?: "";
+$phone_1   = get_field( 'contact_phone_1' )          ?: '';
+$phone_2   = get_field( 'contact_phone_2' )          ?: '';
+$email     = get_field( 'contact_email' )            ?: '';
+$hours_raw = get_field( 'contact_hours' )            ?: "";
+$dir_url   = get_field( 'contact_directions_url' )   ?: '';
+$map_url   = get_field( 'contact_map_embed_url' )    ?: '';
 
 /* ── Form section ───────────────────────────────────────── */
-$form_sub   = get_field( 'contact_form_subtitle' )    ?: 'Send Message';
-$form_title = get_field( 'contact_form_title' )       ?: 'Drop us a <span class="text-gradient-fire">line</span>';
-$form_desc  = get_field( 'contact_form_description' ) ?: "Have a question or feedback? Fill in the form and we'll get back to you shortly.";
+$form_sub   = get_field( 'contact_form_subtitle' )    ?: '';
+$form_title = get_field( 'contact_form_title' )       ?: '';
+$form_desc  = get_field( 'contact_form_description' ) ?: "";
 
 /* tel: href from a display number, e.g. "07 5527 5944" → tel:0755275944 */
 $tel = static function ( $num ) {
@@ -132,7 +132,7 @@ foreach ( preg_split( '/\r\n|\r|\n/', (string) $hours_raw ) as $line ) {
          * "Contact form" definition supplied with this build) into a new
          * CF7 form, then replace the id below with that form's id.
          */
-        echo do_shortcode( '[contact-form-7 id="REPLACE_CONTACT_FORM_ID" title="Contact Us"]' );
+        echo do_shortcode( '[contact-form-7 id="2154b98" title="contact Form"]' );
         ?>
       </div>
     </div>

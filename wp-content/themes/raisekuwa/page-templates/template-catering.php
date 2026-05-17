@@ -19,9 +19,9 @@ if ( is_array( $hero_bg_raw ) ) {
 	$hero_bg = $hero_bg_raw ?: get_template_directory_uri() . '/assets/images/parallax-grill-CQrKh_B_.jpg';
 }
 
-$subtitle   = get_field( 'catering_hero_subtitle' ) ?: 'Catering Menu';
-$title      = get_field( 'catering_hero_title' )    ?: 'Bring the <span class="text-gradient-fire">fire</span> to your event';
-$desc       = get_field( 'catering_hero_description' ) ?: 'Authentic Nepali street food, charcoal-grilled Sekuwa and hand-folded momo — catered for weddings, parties, corporate events and gatherings of every size.';
+$subtitle   = get_field( 'catering_hero_subtitle' ) ?: '';
+$title      = get_field( 'catering_hero_title' )    ?: '';
+$desc       = get_field( 'catering_hero_description' ) ?: '';
 
 // ─── Main Package Data ───
 $pkg_image_raw = get_field( 'catering_package_image' );
@@ -33,9 +33,9 @@ if ( is_array( $pkg_image_raw ) ) {
 	$pkg_image = $pkg_image_raw ?: get_template_directory_uri() . '/assets/images/dish-sekuwa-mix-BtfJtQ-w.jpg';
 }
 
-$pkg_price  = get_field( 'catering_package_price' ) ?: '$25';
-$pkg_title  = get_field( 'catering_package_title' ) ?: '$25 <span class="text-gradient-fire">per person</span>';
-$pkg_desc   = get_field( 'catering_package_description' ) ?: 'Our signature catering package — a balanced spread of vibrant entrées and hearty mains, perfect for sit-down dinners or buffet-style service.';
+$pkg_price  = get_field( 'catering_package_price' ) ?: '';
+$pkg_title  = get_field( 'catering_package_title' ) ?: '';
+$pkg_desc   = get_field( 'catering_package_description' ) ?: '';
 
 // ─── Add-Ons ───
 $addons = get_field( 'catering_addons' );

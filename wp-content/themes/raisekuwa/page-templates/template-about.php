@@ -18,9 +18,9 @@ if ( is_array( $hero_bg_raw ) ) {
 } else {
 	$hero_bg = $hero_bg_raw ?: get_template_directory_uri() . '/assets/images/about-chef-DB7vu_D2.jpg';
 }
-$subtitle   = get_field( 'about_hero_subtitle' ) ?: 'Our Story';
-$title      = get_field( 'about_hero_title' )    ?: 'A taste of <span class="text-gradient-fire">home</span>, far from home.';
-$desc       = get_field( 'about_hero_description' ) ?: 'From the streets of Kathmandu to the heart of Southport — the soul of Nepal, served with fire.';
+$subtitle   = get_field( 'about_hero_subtitle' ) ?: '';
+$title      = get_field( 'about_hero_title' )    ?: '';
+$desc       = get_field( 'about_hero_description' ) ?: '';
 ?>
 
 <main>
