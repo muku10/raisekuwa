@@ -79,23 +79,44 @@
     t.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
-  /* ---------- 6. Simple Parallax ---------- */
+  /* ---------- 6. Parallax (element-relative) ---------- */
+  // Each .will-change-transform float drifts gently around its OWN anchor
+  // point, based on how far that point is from the viewport centre — not
+  // the global scroll position. This keeps floats near their section on
+  // long pages (e.g. the homepage) instead of sliding far off-screen.
   var parallaxEls = document.querySelectorAll('.will-change-transform');
   if (parallaxEls.length) {
+    var speeds = [0.06, -0.05, 0.08, -0.04, 0.07, -0.06];
+    var items  = [];
+
+    var measure = function () {
+      items.forEach(function (it) {
+        // Reset to base position so the measurement is transform-free.
+        it.el.style.transform = 'translate3d(0px, 0px, 0px)' + it.rotate;
+      });
+      items.forEach(function (it) {
+        var rect = it.el.getBoundingClientRect();
+        it.anchor = rect.top + window.scrollY + rect.height / 2;
+      });
+    };
+
     parallaxEls.forEach(function (el, i) {
-      var styleStr = el.getAttribute('style') || '';
-      var rotateMatch = styleStr.match(/rotate\(([^)]+)\)/);
-      el.dataset.rotate = rotateMatch ? rotateMatch[0] : '';
-      
-      var speeds = [0.06, -0.05, 0.08, -0.04, 0.07, -0.06];
-      el.dataset.speed = speeds[i % speeds.length];
+      var styleStr   = el.getAttribute('style') || '';
+      var rotateMtch = styleStr.match(/rotate\([^)]+\)/);
+      items.push({
+        el: el,
+        rotate: rotateMtch ? ' ' + rotateMtch[0] : '',
+        speed: speeds[i % speeds.length],
+        anchor: 0
+      });
     });
 
     var updateParallax = function () {
-      var scrollY = window.scrollY;
-      parallaxEls.forEach(function (el) {
-        var yPos = scrollY * parseFloat(el.dataset.speed);
-        el.style.transform = 'translate3d(0px, ' + yPos + 'px, 0px) ' + el.dataset.rotate;
+      var viewportCenter = window.scrollY + window.innerHeight / 2;
+      items.forEach(function (it) {
+        var yPos = (viewportCenter - it.anchor) * it.speed;
+        it.el.style.transform =
+          'translate3d(0px, ' + yPos.toFixed(1) + 'px, 0px)' + it.rotate;
       });
     };
 
@@ -109,7 +130,15 @@
         ticking = true;
       }
     }, { passive: true });
-    
+
+    window.addEventListener('resize', function () {
+      measure();
+      updateParallax();
+    }, { passive: true });
+
+    // Initial measure + paint (re-measure once images have loaded).
+    measure();
     updateParallax();
+    window.addEventListener('load', function () { measure(); updateParallax(); });
   }
 })();

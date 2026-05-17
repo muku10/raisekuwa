@@ -52,15 +52,9 @@ $about_paras = array_values( array_filter( array_map( 'trim', preg_split( '/\n\s
 		</div>
 
 		<!-- Floating Decorative Elements (Parallax) -->
-		<img src="<?php echo $img_base; ?>float-chili-D48owxuK.png"
-			 alt="" aria-hidden="true"
-			 class="pointer-events-none select-none absolute top-24 right-10 w-24 opacity-70 float-med"
-			 data-speed="0.2">
+		<img src="<?php echo $img_base; ?>float-chili-D48owxuK.png" alt="" aria-hidden="true" class="pointer-events-none select-none will-change-transform absolute top-24 right-10 w-24 opacity-70" style="transform: translate3d(0px, 0px, 0px) rotate(-63.7deg); transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);">
 
-		<img src="<?php echo $img_base; ?>float-tomato-CXuafqOm.png"
-			 alt="" aria-hidden="true"
-			 class="pointer-events-none select-none absolute bottom-12 left-10 w-20 opacity-60 float-slow"
-			 data-speed="-0.1">
+		<img src="<?php echo $img_base; ?>float-tomato-CXuafqOm.png" alt="" aria-hidden="true" class="pointer-events-none select-none will-change-transform absolute bottom-12 left-10 w-20 opacity-60" style="transform: translate3d(0px, 0px, 0px) rotate(-0.3deg); transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);">
 
 		<div class="container relative text-center max-w-3xl">
 			<span class="text-primary uppercase text-xs tracking-[0.4em] reveal"><?php echo esc_html( $subtitle ); ?></span>

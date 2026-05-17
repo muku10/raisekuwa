@@ -17,8 +17,8 @@ get_header();
 			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/parallax-grill-CQrKh_B_.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover">
 			<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-background"></div>
 		</div>
-		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/float-chili-D48owxuK.png" alt="" aria-hidden="true" class="pointer-events-none select-none will-change-transform absolute top-24 right-10 w-24 opacity-70">
-		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/float-tomato-CXuafqOm.png" alt="" aria-hidden="true" class="pointer-events-none select-none will-change-transform absolute bottom-12 left-10 w-20 opacity-60">
+		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/float-chili-D48owxuK.png" alt="" aria-hidden="true" class="pointer-events-none select-none will-change-transform absolute top-24 right-10 w-24 opacity-70" style="transform: translate3d(0px, 0px, 0px) rotate(-63.7deg); transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);">
+		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/float-tomato-CXuafqOm.png" alt="" aria-hidden="true" class="pointer-events-none select-none will-change-transform absolute bottom-12 left-10 w-20 opacity-60" style="transform: translate3d(0px, 0px, 0px) rotate(-0.3deg); transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);">
 		<div class="container relative text-center max-w-3xl"><span class="text-primary uppercase text-xs tracking-[0.4em]">Our Full Menu</span>
 			<h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl mt-4 leading-tight">From street stalls <span class="text-gradient-fire">to your plate</span></h1>
 			<p class="text-white/75 mt-6 max-w-xl mx-auto leading-relaxed">All prices in AUD. Walk in, sit back, and let the fire do the talking.</p>
