@@ -61,8 +61,8 @@ $desc     = get_field( 'intro_description' );
 
     <div class="reveal" style="transition-delay:200ms;">
       <div class="flex flex-wrap justify-center gap-4 mt-14">
-        <a href="#about" class="btn-fire text-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-widest"><span>Know more about us</span></a>
-        <a href="#menu" class="btn-ghost-fire text-foreground border-foreground/30 px-8 py-4 text-xs font-semibold uppercase tracking-widest"><span>View Our Menu</span></a>
+        <a href="<?php echo get_field('intro_primary_btn_url'); ?>" class="btn-fire text-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-widest"><span><?php echo get_field('intro_primary_btn_text'); ?></span></a>
+        <a href="<?php echo get_field('intro_secondary_btn_url'); ?>" class="btn-ghost-fire text-foreground border-foreground/30 px-8 py-4 text-xs font-semibold uppercase tracking-widest"><span><?php echo get_field('intro_secondary_btn_text'); ?></span></a>
       </div>
     </div>
 

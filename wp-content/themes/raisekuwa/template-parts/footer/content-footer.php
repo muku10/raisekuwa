@@ -70,7 +70,7 @@ $items_menu   = $resolve_menu( 'footer-menu-2' );
 					<span class="font-display tracking-[0.22em] uppercase text-lg lg:text-xl"><span class="text-primary">Rai's</span> <span class="text-white">Sekuwa Corner</span></span>
 				</a>
 				<p class="text-white/60 max-w-sm leading-relaxed">
-					<?php echo esc_html( get_bloginfo( 'description' ) ?: 'Authentic Nepali Sekuwa, hand-folded momo and bold street food, grilled fresh over real charcoal in Southport, Queensland.' ); ?>
+					<?php echo esc_html( get_field( 'description' ,'option') ?: '' ); ?>
 				</p>
 				<div class="flex gap-3 mt-6">
 					<?php if ( $contact['facebook'] ) : ?>
@@ -99,9 +99,6 @@ $items_menu   = $resolve_menu( 'footer-menu-2' );
 						<?php foreach ( $explore_menu['items'] as $item ) : ?>
 							<li><a href="<?php echo esc_url( $item->url ); ?>" class="hover:text-primary transition-colors"><?php echo esc_html( $item->title ); ?></a></li>
 						<?php endforeach; ?>
-					<?php else : ?>
-						<li><a href="<?php echo esc_url( site_url( '/about' ) ); ?>" class="hover:text-primary">About</a></li>
-						<li><a href="<?php echo esc_url( site_url( '/contact' ) ); ?>" class="hover:text-primary">Contact</a></li>
 					<?php endif; ?>
 				</ul>
 			</div>
@@ -114,9 +111,6 @@ $items_menu   = $resolve_menu( 'footer-menu-2' );
 						<?php foreach ( $items_menu['items'] as $item ) : ?>
 							<li><a href="<?php echo esc_url( $item->url ); ?>" class="hover:text-primary transition-colors"><?php echo esc_html( $item->title ); ?></a></li>
 						<?php endforeach; ?>
-					<?php else : ?>
-						<li><a href="<?php echo esc_url( site_url( '/menu' ) ); ?>" class="hover:text-primary">Sekuwa (BBQ)</a></li>
-						<li><a href="<?php echo esc_url( site_url( '/menu' ) ); ?>" class="hover:text-primary">Momo</a></li>
 					<?php endif; ?>
 				</ul>
 			</div>

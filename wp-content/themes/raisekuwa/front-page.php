@@ -18,9 +18,9 @@ get_header(); ?>
     <?php get_template_part( 'template-parts/home/signature' ); ?>
     <?php get_template_part( 'template-parts/home/about' ); ?>
     <?php get_template_part( 'template-parts/home/catering' ); ?>
-    <?php get_template_part( 'template-parts/home/testimonials' ); ?>
+    <?php // get_template_part( 'template-parts/home/testimonials' ); ?>
     <?php get_template_part( 'template-parts/home/booking' ); ?>
-    <?php get_template_part( 'template-parts/home/menu' ); ?>
+    <?php // get_template_part( 'template-parts/home/menu' ); ?>
 </main>
 
 <?php get_footer(); ?>
