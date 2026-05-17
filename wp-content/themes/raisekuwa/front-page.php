@@ -5,7 +5,7 @@
  *
  * Section order matches the static index.html exactly:
  *  Hero → Intro → Signature → About → Catering Parallax
- *  → Testimonials → Booking Form
+ *  → Testimonials → Booking Form → Menu
  *
  * @package raisekuwa
  */
@@ -20,6 +20,7 @@ get_header(); ?>
     <?php get_template_part( 'template-parts/home/catering' ); ?>
     <?php get_template_part( 'template-parts/home/testimonials' ); ?>
     <?php get_template_part( 'template-parts/home/booking' ); ?>
+    <?php get_template_part( 'template-parts/home/menu' ); ?>
 </main>
 
 <?php get_footer(); ?>

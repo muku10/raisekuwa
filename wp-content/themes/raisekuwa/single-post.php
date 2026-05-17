@@ -2,7 +2,7 @@
 /**
  * Blog post template.
  *
- * @package nepalkochino
+ * @package raisekuwa
  */
 
 get_header(); ?>

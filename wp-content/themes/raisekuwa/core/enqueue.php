@@ -139,12 +139,15 @@ function raisekuwa_scripts() {
 	/*  WooCommerce overrides                                               */
 	/* ------------------------------------------------------------------ */
 	if ( class_exists( 'WooCommerce' ) ) {
-		wp_enqueue_style(
-			'raisekuwa-woocommerce',
-			get_template_directory_uri() . '/assets/css/woocommerce.css',
-			[],
-			'1.0.0'
-		);
+		$woo_css = get_template_directory() . '/assets/css/woocommerce.css';
+		if ( file_exists( $woo_css ) ) {
+			wp_enqueue_style(
+				'raisekuwa-woocommerce',
+				get_template_directory_uri() . '/assets/css/woocommerce.css',
+				[],
+				'1.0.0'
+			);
+		}
 
 		wp_add_inline_script( 'jquery', "
 			jQuery(document).on('click', '.nkc-qty-btn', function(e) {

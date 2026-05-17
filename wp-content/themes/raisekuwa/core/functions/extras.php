@@ -3,7 +3,7 @@
  * Misc helpers — uploads, srcset HTTPS, single-product description placement,
  * thumbnail sizing, and the same-page category filter.
  *
- * @package nepalkochino
+ * @package raisekuwa
  */
 
 if ( ! defined( 'ABSPATH' ) ) exit;

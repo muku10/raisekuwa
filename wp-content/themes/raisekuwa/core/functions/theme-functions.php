@@ -45,9 +45,9 @@ if ( ! current_user_can( 'administrator' ) ) {
 add_filter( 'woocommerce_get_price_html', function ( $price_html, $product ) {
 	if ( is_product() ) {
 		if ( ! $product->is_in_stock() ) {
-			$price_html .= ' <span class="nkc-sale-badge nkc-badge-soldout-inline">' . esc_html__( 'Sold out', 'nepalkochino' ) . '</span>';
+			$price_html .= ' <span class="nkc-sale-badge nkc-badge-soldout-inline">' . esc_html__( 'Sold out', 'raisekuwa' ) . '</span>';
 		} elseif ( $product->is_on_sale() ) {
-			$price_html .= ' <span class="nkc-sale-badge">' . esc_html__( 'Sale', 'nepalkochino' ) . '</span>';
+			$price_html .= ' <span class="nkc-sale-badge">' . esc_html__( 'Sale', 'raisekuwa' ) . '</span>';
 		}
 	}
 	return $price_html;
@@ -67,7 +67,7 @@ remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_singl
  * Friendlier related-products heading.
  */
 add_filter( 'woocommerce_product_related_products_heading', function () {
-	return __( 'You may also like', 'nepalkochino' );
+	return __( 'You may also like', 'raisekuwa' );
 } );
 
 /**

@@ -2,7 +2,7 @@
 /**
  * Single post / single CPT template.
  *
- * @package nepalkochino
+ * @package raisekuwa
  */
 
 get_header(); ?>

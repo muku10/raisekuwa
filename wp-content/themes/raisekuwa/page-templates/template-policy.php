@@ -4,7 +4,7 @@
  *
  * Single-column layout for Privacy Policy, Terms, Refund Policy, etc.
  *
- * @package nepalkochino
+ * @package raisekuwa
  */
 
 get_header(); ?>

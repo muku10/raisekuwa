@@ -2,7 +2,7 @@
 /**
  * Template Name: Contact Page
  *
- * @package nepalkochino
+ * @package raisekuwa
  */
 
 get_header();

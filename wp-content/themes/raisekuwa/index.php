@@ -7,7 +7,7 @@
  * so the layout works without any admin setup. Otherwise it falls through to a
  * lightweight blog index.
  *
- * @package nepalkochino
+ * @package raisekuwa
  */
 
 get_header(); ?>
@@ -33,11 +33,11 @@ get_header(); ?>
 			</div>
 
 			<nav class="mt-12 flex justify-between text-sm font-bold text-crimson">
-				<div><?php previous_posts_link( __( '← Newer', 'nepalkochino' ) ); ?></div>
-				<div><?php next_posts_link( __( 'Older →', 'nepalkochino' ) ); ?></div>
+				<div><?php previous_posts_link( __( '← Newer', 'raisekuwa' ) ); ?></div>
+				<div><?php next_posts_link( __( 'Older →', 'raisekuwa' ) ); ?></div>
 			</nav>
 		<?php else : ?>
-			<p class="text-center text-muted-foreground"><?php esc_html_e( 'Nothing to show here yet.', 'nepalkochino' ); ?></p>
+			<p class="text-center text-muted-foreground"><?php esc_html_e( 'Nothing to show here yet.', 'raisekuwa' ); ?></p>
 		<?php endif; ?>
 	</main>
 

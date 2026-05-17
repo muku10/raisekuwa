@@ -2,7 +2,7 @@
 /**
  * Reusable product card — matches nkc-static/index.html best-sellers grid.
  *
- * @package nepalkochino
+ * @package raisekuwa
  *
  * Expected variables:
  *   $product (WC_Product) — required
@@ -31,9 +31,9 @@ $price_html_regular = ( $card_sale && $price_regular !== '' ) ? wc_price( $price
 	<div class="relative aspect-square overflow-hidden bg-muted">
 		<img src="<?php echo esc_url( $main_img ); ?>" alt="<?php echo esc_attr( $card_title ); ?>" class="h-full w-full object-cover transition group-hover:scale-105" loading="lazy" />
 		<?php if ( ! $card_stock ) : ?>
-			<span class="absolute top-3 left-3 rounded-full bg-primary-deep px-2.5 py-1 text-xs font-bold text-white"><?php esc_html_e( 'SOLD OUT', 'nepalkochino' ); ?></span>
+			<span class="absolute top-3 left-3 rounded-full bg-primary-deep px-2.5 py-1 text-xs font-bold text-white"><?php esc_html_e( 'SOLD OUT', 'raisekuwa' ); ?></span>
 		<?php elseif ( $card_sale ) : ?>
-			<span class="absolute top-3 left-3 rounded-full bg-crimson px-2.5 py-1 text-xs font-bold text-white"><?php esc_html_e( 'SALE', 'nepalkochino' ); ?></span>
+			<span class="absolute top-3 left-3 rounded-full bg-crimson px-2.5 py-1 text-xs font-bold text-white"><?php esc_html_e( 'SALE', 'raisekuwa' ); ?></span>
 		<?php endif; ?>
 	</div>
 	<div class="p-4">
