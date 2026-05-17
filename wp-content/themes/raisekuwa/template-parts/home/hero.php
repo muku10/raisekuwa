@@ -1,15 +1,16 @@
 <?php
-$bg_image = get_field('hero_bg_image') ;
-$subtitle = get_field('hero_subtitle') ;
-$title = get_field('hero_title') ;
-$desc = get_field('hero_description');
-$btn1_text = get_field('hero_primary_btn_text') ;
-$btn1_link = get_field('hero_primary_btn_link') ;
-$btn2_text = get_field('hero_secondary_btn_text') ;
-$btn2_link = get_field('hero_secondary_btn_link') ;?>
+$bg_image  = get_field('hero_bg_image');
+$subtitle  = get_field('hero_subtitle')  ?: 'Authentic Nepali Kitchen';
+$title     = get_field('hero_title')     ?: 'Taste the <br><span class="text-gradient-fire">Fire of Nepal</span>';
+$desc      = get_field('hero_description') ?: 'Smoky charcoal Sekuwa, hand-folded momo and bold Nepali street food — crafted from family recipes, grilled fresh to order in Southport.';
+$btn1_text = get_field('hero_primary_btn_text')   ?: 'Explore Menu';
+$btn1_link = get_field('hero_primary_btn_link')   ?: site_url('/menu');
+$btn2_text = get_field('hero_secondary_btn_text') ?: 'Contact Us';
+$btn2_link = get_field('hero_secondary_btn_link') ?: site_url('/contact');
+?>
 <section id="home" class="relative min-h-screen w-full overflow-hidden flex items-center bg-[#0b0a09] text-white">
     <div class="absolute inset-0">
-        <img src="<?php echo esc_url($bg_image); ?>" alt="Sekuwa grilling over open flames" class="w-full h-full object-cover ken-burns opacity-95">
+        <img src="<?php echo $bg_image ? esc_url($bg_image) : esc_url( get_template_directory_uri() ) . '/assets/images/hero-sekuwa-D_cTsVYV.jpg'; ?>" alt="Sekuwa grilling over open flames" class="w-full h-full object-cover ken-burns opacity-95" width="1920" height="1080">
         <div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/10"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/30 to-black/40"></div>
     </div>

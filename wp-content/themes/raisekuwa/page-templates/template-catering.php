@@ -46,7 +46,7 @@ $addons = get_field( 'catering_addons' );
 	<section class="relative pt-40 pb-24 lg:pt-52 lg:pb-32 overflow-hidden text-white">
 		<div class="absolute inset-0">
 			<img src="<?php echo esc_url( $hero_bg ); ?>" alt="" aria-hidden="true" class="w-full h-full object-cover">
-			<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#0b0a09]"></div>
+			<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-background"></div>
 		</div>
 		
 		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/float-chili-D48owxuK.png" 
@@ -199,8 +199,72 @@ $addons = get_field( 'catering_addons' );
 		</div>
 	</section>
 
-	<!-- How it works -->
-	<?php get_template_part( 'template-parts/home/catering' ); // Reusing the "How it works" section if available ?>
+	<!-- How It Works -->
+	<section class="py-24 lg:py-32 bg-background">
+		<div class="container max-w-5xl">
+			<div class="reveal">
+				<div class="text-center mb-14">
+					<span class="text-primary uppercase text-xs tracking-[0.4em]">How It Works</span>
+					<h2 class="font-serif text-4xl sm:text-5xl mt-4">Catering, made <span class="text-gradient-fire">simple</span></h2>
+				</div>
+			</div>
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="reveal">
+					<div class="border border-border p-8 h-full bg-card/40 hover:border-primary/60 transition-colors">
+						<div class="font-serif text-5xl text-gradient-fire mb-3">01</div>
+						<h3 class="font-serif text-2xl mb-3">Get in touch</h3>
+						<p class="text-muted-foreground leading-relaxed">Call, email or message us with your date, guest count and any dietary needs.</p>
+					</div>
+				</div>
+				<div class="reveal" style="transition-delay: 120ms;">
+					<div class="border border-border p-8 h-full bg-card/40 hover:border-primary/60 transition-colors">
+						<div class="font-serif text-5xl text-gradient-fire mb-3">02</div>
+						<h3 class="font-serif text-2xl mb-3">We deliver food</h3>
+						<p class="text-muted-foreground leading-relaxed">Start with the $25 package and add Sekuwa, momo or chowmein to suit your crowd.</p>
+					</div>
+				</div>
+				<div class="reveal" style="transition-delay: 240ms;">
+					<div class="border border-border p-8 h-full bg-card/40 hover:border-primary/60 transition-colors">
+						<div class="font-serif text-5xl text-gradient-fire mb-3">03</div>
+						<h3 class="font-serif text-2xl mb-3">We bring the fire</h3>
+						<p class="text-muted-foreground leading-relaxed">Freshly prepared, delivered hot and ready to serve — buffet or platter style.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Enquire Now CTA -->
+	<section class="relative py-24 lg:py-32 overflow-hidden text-white">
+		<div class="absolute inset-0">
+			<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/parallax-grill-CQrKh_B_.jpg" alt="" aria-hidden="true" class="w-full h-full object-cover">
+			<div class="absolute inset-0 bg-gradient-to-r from-black/90 via-black/75 to-black/60"></div>
+		</div>
+		<div class="relative container text-center max-w-3xl">
+			<div class="reveal">
+				<span class="text-primary uppercase text-xs tracking-[0.4em] flex items-center justify-center gap-2">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users w-4 h-4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+					Enquire Now
+				</span>
+				<h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl mt-4 leading-tight">Let's plan your <span class="text-gradient-fire">next event</span></h2>
+				<p class="text-white/75 mt-6 max-w-xl mx-auto leading-relaxed">Weddings, birthdays, office lunches or family gatherings — we cater for every occasion across the Gold Coast.</p>
+				<div class="flex flex-wrap justify-center gap-4 mt-10">
+					<a href="tel:+61755275944" class="btn-fire text-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-widest flex items-center gap-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+						<span>07 5527 5944</span>
+					</a>
+					<a href="tel:+61400483912" class="btn-ghost-fire text-white border-white/40 px-8 py-4 text-xs font-semibold uppercase tracking-widest flex items-center gap-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone w-4 h-4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+						<span>0400 483 912</span>
+					</a>
+					<a href="mailto:info@raisekuwacorner.com.au" class="btn-ghost-fire text-white border-white/40 px-8 py-4 text-xs font-semibold uppercase tracking-widest flex items-center gap-2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-4 h-4"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+						<span>Email Us</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- Inquiry Form Section -->
 	<section id="catering-inquiry" class="py-24 lg:py-32 bg-card/40 border-t border-border">
@@ -212,15 +276,16 @@ $addons = get_field( 'catering_addons' );
 					<p class="text-muted-foreground mt-4 max-w-xl mx-auto">Tell us about your event and we'll send a tailored catering proposal back to you within 24 hours.</p>
 				</div>
 			</div>
-			
+
 			<div class="reveal" style="transition-delay: 120ms;">
-				<?php 
-				$cf7_shortcode = get_field( 'catering_form_shortcode' );
-				if ( $cf7_shortcode ) {
-					echo do_shortcode( $cf7_shortcode );
-				} else {
-					echo '<p class="text-center text-muted-foreground">Please add a Contact Form 7 shortcode in the page settings.</p>';
-				}
+				<?php
+				/*
+				 * Contact Form 7 — paste the matching catering inquiry form
+				 * markup (see the "Catering inquiry form" definition supplied
+				 * with this build) into a new CF7 form, then replace the id
+				 * below with that form's id.
+				 */
+				echo do_shortcode( '[contact-form-7 id="REPLACE_CATERING_FORM_ID" title="Catering Inquiry"]' );
 				?>
 			</div>
 		</div>

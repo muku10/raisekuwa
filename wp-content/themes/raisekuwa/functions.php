@@ -30,3 +30,13 @@ add_action( 'admin_notices', function() {
 add_filter( 'wp_image_editors', function( $editors ) {
 	return array( 'WP_Image_Editor_GD', 'WP_Image_Editor_Imagick' );
 } );
+
+/**
+ * Contact Form 7 — disable automatic <p>/<br> insertion.
+ *
+ * The CF7 forms used by this theme (contact, booking, catering inquiry)
+ * are built from custom block-level markup — grids, <label> blocks and
+ * inline SVG icons. CF7's auto-paragraph would inject stray <p>/<br>
+ * tags and break that layout, so it is turned off for every form.
+ */
+add_filter( 'wpcf7_autop_or_not', '__return_false' );

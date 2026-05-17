@@ -43,7 +43,7 @@ $gallery_query = new WP_Query( array(
 	<section class="relative pt-40 pb-24 lg:pt-52 lg:pb-32 overflow-hidden text-white">
 		<div class="absolute inset-0">
 			<img src="<?php echo esc_url( $hero_bg ); ?>" alt="" aria-hidden="true" class="w-full h-full object-cover">
-			<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-[#0b0a09]"></div>
+			<div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-background"></div>
 		</div>
 		
 		<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/float-chili-D48owxuK.png" 
@@ -111,7 +111,7 @@ $gallery_query = new WP_Query( array(
 					<div class="reveal gallery-item" data-category="<?php echo esc_attr( $cat_slugs ); ?>">
 						<button class="group relative block aspect-square overflow-hidden bg-card w-full" aria-label="View <?php the_title_attribute(); ?>">
 							<?php if ( has_post_thumbnail() ) : ?>
-								<?php the_post_thumbnail( 'large', array( 'class' => 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110' ) ); ?>
+								<?php the_post_thumbnail( 'large', array( 'class' => 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110', 'loading' => 'lazy' ) ); ?>
 							<?php endif; ?>
 							
 							<div class="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
